@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bài tập nhóm 9 2D</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bản đồ Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 100vh;
+            /* Sử dụng toàn bộ chiều cao của màn hình */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <script>
+
+        // Tạo bản đồ Leaflet
+        var map = L.map('map').setView([10.7769, 106.7009], 16); // Tọa độ trung tâm bản đồ và mức độ phóng đại
+
+        // Thêm tile layer (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Tạo vùng đa giác cho các quận
+        var quận1 = [
+            [10.7751, 106.6951], [10.7762, 106.6994], [10.7768, 106.7012],
+            [10.7758, 106.7038], [10.774, 106.7034], [10.774, 106.6981]
+        ];
+
+        var quận3 = [
+            [10.7768, 106.7012], [10.7762, 106.6994], [10.7751, 106.6951],
+            [10.7775, 106.6951], [10.7775, 106.7012]
+        ];
+
+        var quận4 = [
+            [10.774, 106.6981], [10.774, 106.7034], [10.7735, 106.7034],
+            [10.7725, 106.7034], [10.7725, 106.7015], [10.7737, 106.7015],
+            [10.7737, 106.6981]
+        ];
+
+        var quận5 = [
+            [10.7662, 106.6917], [10.7753, 106.6981], [10.7801, 106.6945],
+            [10.7836, 106.6986], [10.7799, 106.7003], [10.7792, 106.7004],
+            [10.7788, 106.7005], [10.7785, 106.7009], [10.7776, 106.7012],
+            [10.7774, 106.7008], [10.7749, 106.6995], [10.7722, 106.6966],
+            [10.7675, 106.6921]
+        ];
+
+        var quận6 = [
+            // Các điểm của quận 6
+            [10.7751, 106.6951], [10.7762, 106.6994], [10.7768, 106.7012],
+            [10.7764, 106.7019], [10.7748, 106.7015], [10.7745, 106.7005],
+            [10.7741, 106.6998], [10.774, 106.6981], [10.774, 106.6951]
+        ];
+
+        var quận7 = [
+            [10.7683, 106.6953], [10.7725, 106.6964], [10.7717, 106.7033],
+            [10.7715, 106.7032], [10.7706, 106.7028], [10.7683, 106.7009],
+            [10.7674, 106.7005], [10.7669, 106.7003], [10.7674, 106.6986],
+            [10.7674, 106.6977], [10.7676, 106.6971], [10.7683, 106.6953]
+        ];
+
+        var quận10 = [
+            [10.7751, 106.6951], [10.7762, 106.6994], [10.7768, 106.7012],
+            [10.7758, 106.7038], [10.774, 106.7034], [10.7735, 106.7034],
+            [10.7735, 106.7055], [10.7725, 106.7055], [10.7725, 106.7034],
+            [10.7725, 106.7015], [10.7737, 106.7015], [10.7737, 106.6981],
+            [10.774, 106.6981], [10.7751, 106.6951]
+        ];
+
+        // Thêm vùng đa giác cho các quận vào bản đồ
+        L.polygon(quận1, { color: 'blue' }).addTo(map); // đúng
+        // L.polygon(quận2, { color: 'green' }).addTo(map);
+        L.polygon(quận3, { color: 'yellow' }).addTo(map); // đúng
+        L.polygon(quận4, { color: 'purple' }).addTo(map);
+        L.polygon(quận5, { color: 'red' }).addTo(map);
+        L.polygon(quận6, { color: 'orange' }).addTo(map);
+        L.polygon(quận10, { color: 'pink' }).addTo(map);
+
+
+        // Tạo một điểm kiểm tra
+        var testPoint = L.marker([10.7836, 106.6853]).addTo(map); // demo 1 điểm (chỉ là ví dụ)
+        var testPoint1 = L.marker([10.7762, 106.6994]).addTo(map);
+
+        // Kiểm tra xem điểm kiểm tra có nằm trong vùng đa giác của quận 1 hay không
+        //if (L.polygon(quận1).getBounds().contains(testPoint.getLatLng())) {
+        //   alert('Điểm kiểm tra nằm trong vùng đa giác của quận 1!');
+        //} else {
+        //   alert('Điểm kiểm tra không nằm trong vùng đa giác của quận 1!');
+
+
+    </script>
+
+</body>
+
+</html>
